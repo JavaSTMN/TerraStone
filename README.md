@@ -1,3 +1,3 @@
 # TerraStone
 
-![UML](UML TerraStone.pdf)
+![UML](UML TerraStone.jpg)
