@@ -152,8 +152,12 @@ public class Player extends Observable{
 		return false;
 	}
 	
-	public boolean useHeroPower() {
-		
+	public boolean useHeroPower(ITarget target) {
+		if(!hero.isHeroPowerIsUsed()) {	
+			IHeroPower heroPower = hero.getHeroPower();
+			heroPower.useHeroPower(target);
+			hero.setHeroPowerIsUsed(true);
+		}
 		notifyObservers("useHeroPower");
 		return false;
 	}
