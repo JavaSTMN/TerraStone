@@ -111,14 +111,15 @@ public class Player extends Observable{
 	
 	public boolean removeCardFromDeck(Card card) {
 		
+		
 		notifyObservers("removeCardFromDeck");
 		return false;
 	}
 	
-	public boolean saveDeck(Card card) {
-		
+	public boolean saveDeck() {
+		this.deck = this.tmp_deck; 
 		notifyObservers("saveDeck");
-		return false;
+		return true;
 	}
 	
 	public boolean playMonsterOnBoard(Card card) {
