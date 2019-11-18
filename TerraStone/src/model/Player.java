@@ -128,8 +128,22 @@ public class Player extends Observable{
 		return false;
 	}
 	
-	public boolean useSpell(Card card,Hero hero,ArrayList<Card> targets_card) {
+	public boolean useSpell(Spell card,Hero hero,ArrayList<Card> targets_card) {
 		
+		switch(card.getType()) {
+		case "AddManaSpell":
+			AddManaSpell spell = (AddManaSpell) card;
+			spell.UseSpell(this.hero);
+			break;
+		case "DamagesSpell":
+			DrawSpell spell = (DrawSpell) card;
+			spell.UseSpell(this.hero);
+			break;
+		case "DrawSpell":
+			AddManaSpell spell = (AddManaSpell) card;
+			spell.UseSpell(this.hero);
+			break;
+		}
 		notifyObservers("useSpell");
 		return false;
 	}
@@ -147,7 +161,8 @@ public class Player extends Observable{
 	}
 	
 	public boolean getLaPiece() {
-		
+		AddManaSpell LaPiece = new AddManaSpell(0, "La Pièce",  "Confère 1 cristal de mana pendant ce tour uniquement", 1);
+		this.hand.addCard(LaPiece);
 		notifyObservers("getLaPiece");
 		return false;
 	}
