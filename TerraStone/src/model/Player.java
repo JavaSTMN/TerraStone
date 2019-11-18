@@ -162,8 +162,10 @@ public class Player extends Observable{
 		return false;
 	}
 	
-	public boolean monsterAttack(Card card, Hero hero) {
-		
+	public boolean monsterAttack(Monster card, ITarget target) {
+		int responseMonster = target.takeDamages(card.getDamages());
+		card.setHasAttacked(true);
+		card.takeDamages(responseMonster);
 		notifyObservers("monsterAttack");
 		return false;
 	}
