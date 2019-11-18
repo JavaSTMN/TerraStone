@@ -6,8 +6,9 @@ import java.util.Observable;
 public class Hero extends Observable implements ITarget{
 	private int mana;
 	private int mana_max;
-	private int hero_power;
 	private int health;
+	private boolean heroPowerIsUsed;
+	private IHeroPower heroPower;
 	private String name;
 	private String name_class;
 	
@@ -24,12 +25,6 @@ public class Hero extends Observable implements ITarget{
 		}
 		public void setMana_max(int mana_max) {
 			this.mana_max = mana_max;
-		}
-		public int getHero_power() {
-			return hero_power;
-		}
-		public void setHero_power(int hero_power) {
-			this.hero_power = hero_power;
 		}
 		public int getHealth() {
 			return health;
@@ -48,6 +43,18 @@ public class Hero extends Observable implements ITarget{
 		}
 		public void setName(String name) {
 			this.name = name;
+		}
+		public IHeroPower getHeroPower() {
+			return heroPower;
+		}
+		public void setHeroPower(IHeroPower heroPower) {
+			this.heroPower = heroPower;
+		}
+		public boolean isHeroPowerIsUsed() {
+			return heroPowerIsUsed;
+		}
+		public void setHeroPowerIsUsed(boolean heroPowerIsUsed) {
+			this.heroPowerIsUsed = heroPowerIsUsed;
 		}
 		
 		//Methods
@@ -71,6 +78,7 @@ public class Hero extends Observable implements ITarget{
 			this.mana_max = 10;
 			this.mana = this.mana_max;
 		}
+		this.setHeroPowerIsUsed(false);
 		notifyObservers("refresh_mana");
 		return this.mana;
 	}
@@ -87,8 +95,9 @@ public class Hero extends Observable implements ITarget{
 	}
 	
 	@Override
-	public boolean takeDamages(int val) {
-		// TODO Auto-generated method stub
-		return false;
-	}	
+	public int takeDamages(int val) {
+		this.setHealth(this.health-val);
+		notifyObservers("takeDamages");
+		return this.health;
+	}		
 }
