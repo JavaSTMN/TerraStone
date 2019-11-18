@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="1080.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+   <right>
+      <Pane prefHeight="251.0" prefWidth="184.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="86.0" layoutY="117.0" text="Deck" />
+         </children>
+      </Pane>
+   </right>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="426.0" layoutY="117.0" text="Board" />
+            <SplitPane dividerPositions="0.8033395176252319" layoutY="251.0" prefHeight="109.0" prefWidth="1080.0">
+              <items>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="417.0" layoutY="45.0" text="Hand" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="90.0" layoutY="45.0" text="Mana" />
+                     </children>
+                  </Pane>
+              </items>
+            </SplitPane>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
