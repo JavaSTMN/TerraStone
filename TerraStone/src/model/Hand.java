@@ -24,9 +24,6 @@ public class Hand extends Observable{
 		notifyObservers("addCard");
 		return true;
 	}
-	public void drawCard() {
-		// TODO Auto-generated method stub
-		notifyObservers("drawCard");
-	}
+
 
 }

@@ -15,7 +15,7 @@ public class DrawSpell extends Spell{
 	@Override
 	public void UseSpell(Object obj) {
 		// TODO Auto-generated method stub
-		((Hand) obj).drawCard();
+		((Player) obj).draw();
 		notifyObservers("UseSpell");
 	}
 
