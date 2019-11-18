@@ -5,15 +5,14 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MenuView">
    <center>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="71.0" layoutY="34.0" maxHeight="-Infinity" maxWidth="-Infinity" text="TerraStone" />
-            <Button layoutX="78.0" layoutY="75.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" text="Jouer" />
+            <Button fx:id="buttonPlay" layoutX="78.0" layoutY="75.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#pressPlay" text="Jouer" />
             <Button layoutX="79.0" layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" text="Deck" />
-            <Button layoutX="73.0" layoutY="153.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" text="Quitter" />
+            <Button layoutX="73.0" layoutY="153.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#pressExit" text="Quitter" />
          </children>
       </Pane>
    </center>
