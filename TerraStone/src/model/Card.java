@@ -1,6 +1,8 @@
 package model;
+import java.util.Observable;
 
-public class Card {
+@SuppressWarnings("deprecation")
+public class Card extends Observable{
 	private int mana_cost;
 	private String name; 
 	private String effect_description;

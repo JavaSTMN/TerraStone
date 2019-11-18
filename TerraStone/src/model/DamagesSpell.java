@@ -1,5 +1,6 @@
 package model;
 
+@SuppressWarnings("deprecation")
 public class DamagesSpell extends Spell{
 	private int value;
 	private boolean random;
@@ -21,8 +22,8 @@ public class DamagesSpell extends Spell{
 		// TODO Auto-generated method stub
 		int dmg = this.getValue();
 		if(this.isRandom()) dmg = 1;
-		((ITarget) obj).takeDamages(this.value);
-		
+		((ITarget) obj).takeDamages(dmg);
+		notifyObservers("UseSpell");
 	}
 
 }

@@ -1,6 +1,7 @@
 package model;
-
-public class Monster implements ITarget{
+import java.util.Observable;
+@SuppressWarnings("deprecation")
+public class Monster extends Observable implements ITarget{
 	private int damages;
 	private int hp;
 	private boolean hasAttacked;
@@ -22,10 +23,12 @@ public class Monster implements ITarget{
 	}
 	public void setHasAttacked(boolean hasAttacked) {
 		this.hasAttacked = hasAttacked;
+		notifyObservers("setHasAttacked");
 	}
 	@Override
-	public boolean takeDamages(int val) {
+	public int takeDamages(int val) {
 		this.setHp(this.hp-val);
-		return true;
+		notifyObservers("takeDamages");
+		return this.hp;
 	} 
 }

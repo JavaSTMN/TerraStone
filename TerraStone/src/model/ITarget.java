@@ -1,5 +1,5 @@
 package model;
 
 public interface ITarget {
-	public boolean takeDamages(int val);
+	public int takeDamages(int val);
 }

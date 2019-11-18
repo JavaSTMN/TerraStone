@@ -1,5 +1,6 @@
 package model;
 
+@SuppressWarnings("deprecation")
 public class DrawSpell extends Spell{
 	private int value;
 	
@@ -15,7 +16,7 @@ public class DrawSpell extends Spell{
 	public void UseSpell(Object obj) {
 		// TODO Auto-generated method stub
 		((Hand) obj).drawCard();
-		
+		notifyObservers("UseSpell");
 	}
 
 
