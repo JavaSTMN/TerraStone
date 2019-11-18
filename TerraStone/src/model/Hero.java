@@ -7,6 +7,7 @@ public class Hero extends Observable implements ITarget{
 	private int mana;
 	private int mana_max;
 	private int health;
+	private int exhaust;
 	private boolean heroPowerIsUsed;
 	private IHeroPower heroPower;
 	private String name;
@@ -56,6 +57,18 @@ public class Hero extends Observable implements ITarget{
 		public void setHeroPowerIsUsed(boolean heroPowerIsUsed) {
 			this.heroPowerIsUsed = heroPowerIsUsed;
 		}
+		/**
+		 * @return the exhaust
+		 */
+		public int getExhaust() {
+			return exhaust;
+		}
+		/**
+		 * @param exhaust the exhaust to set
+		 */
+		public void setExhaust(int exhaust) {
+			this.exhaust = exhaust;
+		}
 		
 		//Methods
 	
@@ -98,6 +111,11 @@ public class Hero extends Observable implements ITarget{
 	public int takeDamages(int val) {
 		this.setHealth(this.health-val);
 		notifyObservers("takeDamages");
-		return this.health;
-	}		
+		return 0;
+	}	
+	
+	public void exhaustHero() {
+		this.takeDamages(this.exhaust);
+		this.setExhaust(this.exhaust++);
+	}
 }

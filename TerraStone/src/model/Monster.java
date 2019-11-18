@@ -29,6 +29,6 @@ public class Monster extends Observable implements ITarget{
 	public int takeDamages(int val) {
 		this.setHp(this.hp-val);
 		notifyObservers("takeDamages");
-		return this.hp;
+		return this.damages;
 	} 
 }

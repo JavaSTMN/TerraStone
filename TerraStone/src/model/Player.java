@@ -122,7 +122,8 @@ public class Player extends Observable{
 	}
 	
 	public boolean playMonsterOnBoard(Card card) {
-		
+		boolean cardIsOnBoard = this.board.addCard(card);
+		if(cardIsOnBoard) this.hand.removeCard(card);
 		notifyObservers("playMonsterOnBoard");
 		return false;
 	}
@@ -134,7 +135,13 @@ public class Player extends Observable{
 	}
 	
 	public boolean draw() {
-		
+		Card newCard = this.tmp_deck.pickCard();
+		if(newCard != null) {
+			this.hand.addCard(newCard);
+			this.tmp_deck.removeCard(newCard);
+		} else {
+			this.hero.exhaustHero();
+		}
 		notifyObservers("draw");
 		return false;
 	}
