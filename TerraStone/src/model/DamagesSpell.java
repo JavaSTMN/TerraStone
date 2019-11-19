@@ -5,6 +5,12 @@ public class DamagesSpell extends Spell{
 	private int value;
 	private boolean random;
 	
+	public DamagesSpell(int mana_cost,String name, String effect_description,String type,int value,boolean random) {
+		super(mana_cost,name,effect_description,type);
+		this.value = value;
+		this.random = random;
+	}
+	
 	public int getValue() {
 		return value;
 	}

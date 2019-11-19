@@ -7,6 +7,11 @@ public class Card extends Observable{
 	private String name; 
 	private String effect_description;
 	
+	public Card(int mana_cost,String name, String effect_description) {
+		this.mana_cost = mana_cost;
+		this.name= name;
+		this.effect_description=effect_description;
+	}
 	public String getEffect_description() {
 		return effect_description;
 	}
