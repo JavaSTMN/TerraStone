@@ -5,14 +5,15 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MenuView">
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MenuView">
    <center>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="71.0" layoutY="34.0" maxHeight="-Infinity" maxWidth="-Infinity" text="TerraStone" />
-            <Button fx:id="buttonPlay" layoutX="78.0" layoutY="75.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#pressPlay" text="Jouer" />
-            <Button layoutX="79.0" layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" text="Deck" />
-            <Button layoutX="73.0" layoutY="153.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#pressExit" text="Quitter" />
+            <Button layoutX="513.0" layoutY="454.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#pressExit" text="Quitter" />
+            <Label layoutX="511.0" layoutY="313.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="TerraStone" />
+            <Button fx:id="buttonPlay" layoutX="518.0" layoutY="360.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#pressPlay" text="Jouer" />
+            <Button layoutX="519.0" layoutY="407.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Deck" />
          </children>
       </Pane>
    </center>

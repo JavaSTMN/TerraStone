@@ -1,5 +1,28 @@
 package view;
 
-public class PlayerView {
+import java.util.Observable;
+import java.util.Observer;
+
+import model.Deck;
+import model.Hand;
+import model.Player;
+
+public class PlayerView implements Observer{
+	
+	Player player;
+	Deck deck;
+	Hand hand;
+	
+	PlayerView(Player player) {
+		this.player = player;
+		player.addObserver(this);
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		this.deck = player.getDeck();
+		this.hand = player.getHand();
+	}	
+	
 
 }

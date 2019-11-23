@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane prefHeight="300.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="300.0" prefWidth="950.0">
+         <children>
+             <fx:include maxHeight="-Infinity" maxWidth="-Infinity" source="Card.fxml" />
+            <Label layoutX="461.0" layoutY="142.0" text="Hand" />
+         </children>
+      </Pane>
+   </children>
+</Pane>

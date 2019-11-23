@@ -28,7 +28,6 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();*/
-			
 			initialisationConteneurPrincipal(getClass().getResource("../view/Menu.fxml"));
 			initialisationContenu();
 			
@@ -66,7 +65,6 @@ public class Main extends Application {
 			//Au centre, puisque'il s'agit d'un BorderPane
 			mainContainer.setCenter(conteneurPersonne);
 			MenuView menuCtrl = loader.getController();
-			System.out.println(this);
 			menuCtrl.setMainApp(this);
 		} catch (IOException e) {
 			e.printStackTrace();
