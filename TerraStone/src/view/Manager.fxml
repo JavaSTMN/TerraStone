@@ -8,7 +8,7 @@
    <center>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
          <children>
-            <Separator fx:id="boardSeparator" layoutY="356.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="1080.0" />
+            <Separator layoutY="356.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="1080.0" />
             <Pane maxHeight="-Infinity" maxWidth="-Infinity">
                <children>
                   <fx:include maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" source="Player.fxml" />
