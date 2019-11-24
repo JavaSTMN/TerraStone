@@ -13,6 +13,29 @@ public class Hero extends Observable implements ITarget{
 	private String name;
 	private String name_class;
 	
+	public Hero() {
+		this.mana_max = 1;
+		this.mana = 1;
+		this.health = 30;
+		this.exhaust = 1;
+		this.heroPowerIsUsed = false;
+		this.name = "";
+		this.name_class = "Mage";
+		this.heroPower = new MageHeroPower();
+	}
+	
+	public Hero(String type) {
+		this.mana_max = 1;
+		this.mana = 1;
+		this.health = 30;
+		this.exhaust = 1;
+		this.heroPowerIsUsed = false;
+		if(type=="Mage") {
+			this.name = "";
+			this.name_class = "Mage";
+			this.heroPower = new MageHeroPower();
+		}
+	}
 	// Getters - Setters
 	
 		public int getMana() {

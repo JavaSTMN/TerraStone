@@ -4,7 +4,7 @@ package model;
 public class DrawSpell extends Spell{
 	private int value;
 	
-	public DrawSpell(int mana_cost,String name, String effect_description,String type,int value,boolean random) {
+	public DrawSpell(int mana_cost,String name, String effect_description,String type,int value) {
 		super(mana_cost,name,effect_description,type);
 		this.value = value;
 	}
