@@ -6,26 +6,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane fx:id="card" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <bottom>
-      <GridPane prefWidth="400.0" BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints percentHeight="80.0" valignment="CENTER" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label text="ATTACK" />
-            <Label fx:id="hpValue" text="attackValue" GridPane.columnIndex="1" />
-            <Label fx:id="attackValue" text="hpValue" GridPane.columnIndex="3" />
-            <Label text="HP" GridPane.columnIndex="2" />
-         </children>
-      </GridPane>
-   </bottom>
+<BorderPane fx:id="card" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CardView">
    <center>
       <GridPane alignment="CENTER" prefHeight="212.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -43,6 +24,6 @@
       </GridPane>
    </center>
    <top>
-      <Label fx:id="mana" alignment="TOP_CENTER" contentDisplay="CENTER" text="mana" BorderPane.alignment="CENTER" />
+      <Label fx:id="manaValue" alignment="TOP_CENTER" contentDisplay="CENTER" text="mana" BorderPane.alignment="CENTER" />
    </top>
 </BorderPane>
