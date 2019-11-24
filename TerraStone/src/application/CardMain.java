@@ -72,7 +72,7 @@ public class CardMain extends Application {
 			CardView controleur = loader.getController();
 			//Nous lui passons notre instance de classe
 			//pour qu'il puisse récupérer notre liste observable
-			controleur.setMainApp(this);
+			controleur.setValue(cardList.get(0));;
 			
 		} catch (IOException e) {
 			e.printStackTrace();

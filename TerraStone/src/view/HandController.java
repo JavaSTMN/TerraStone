@@ -29,9 +29,10 @@ public abstract class HandController {
 		for(CardFX card : cardList) {
 			CardView c = new CardView(card);
 			c.setValue(card);
+			System.out.println("in hand controller1");
 			
 		}
-		//handLabel.setText(cardList.get(0).getName().getValue());
+		handLabel.setText(cardList.get(0).getName().getValue());
 
 		
 
