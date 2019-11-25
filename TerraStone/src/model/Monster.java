@@ -1,11 +1,16 @@
 package model;
-import java.util.Observable;
-@SuppressWarnings("deprecation")
-public class Monster extends Observable implements ITarget{
+public class Monster extends Card implements ITarget{
 	private int damages;
 	private int hp;
 	private boolean hasAttacked;
 	
+	public Monster(int mana_cost,String name, String effect_description,String type,int damages,int hp) {
+		super(mana_cost,name,effect_description);
+		this.damages = damages;
+		this.hp = hp;
+		this.hasAttacked =false;
+		
+	}
 	public int getDamages() {
 		return damages;
 	}

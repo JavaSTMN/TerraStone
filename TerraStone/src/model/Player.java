@@ -21,7 +21,7 @@ public class Player extends Observable{
 		this.deck = new Deck();
 		this.hero = new Hero();
 		this.hand = new Hand();
-		this.setBoard(new Board());
+		this.board = new Board();
 		this.tmp_deck = new Deck();
 	}
 	
@@ -133,16 +133,16 @@ public class Player extends Observable{
 		
 		switch(card.getType()) {
 		case "AddManaSpell":
-			AddManaSpell spell = (AddManaSpell) card;
-			spell.UseSpell(this.hero);
+			AddManaSpell a_spell = (AddManaSpell) card;
+			a_spell.UseSpell(this.hero);
 			break;
 		case "DamagesSpell":
-			DrawSpell spell = (DrawSpell) card;
-			spell.UseSpell(this.hero);
+			DamagesSpell dmg_spell = (DamagesSpell) card;
+			dmg_spell.UseSpell(this.hero);
 			break;
 		case "DrawSpell":
-			AddManaSpell spell = (AddManaSpell) card;
-			spell.UseSpell(this.hero);
+			DrawSpell d_spell = (DrawSpell) card;
+			d_spell.UseSpell(this.hero);
 			break;
 		}
 		notifyObservers("useSpell");
@@ -162,7 +162,7 @@ public class Player extends Observable{
 	}
 	
 	public boolean getLaPiece() {
-		AddManaSpell LaPiece = new AddManaSpell(0, "La PiÃ¨ce",  "ConfÃ¨re 1 cristal de mana pendant ce tour uniquement", 1);
+		AddManaSpell LaPiece = new AddManaSpell(0, "La Pièce",  "Confère 1 cristal de mana pendant ce tour uniquement","AddManaSpell", 1);
 		this.hand.addCard(LaPiece);
 		notifyObservers("getLaPiece");
 		return false;

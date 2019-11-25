@@ -1,0 +1,91 @@
+{ 
+    "cards": [ 
+        {
+            "type":"DamagesSpell",
+            "name": "Projectiles des Arcanes", 
+            "mana_cost":1,
+            "effect_description":"Inflige 3 points de dégâts répartis de façon aléatoire entre les personnages adverses.",
+            "value": 3,
+            "random": true
+        }, 
+        {
+            "type":"Monster",
+            "name":"Sanglier brocheroc",
+            "mana_cost":1,
+            "effect description":"",
+            "damages":1,
+            "hp":1
+        }, 
+        {
+            "type":"Monster",
+            "name":"Raptor Rougefange",
+            "mana_cost":2,
+            "effect description":"",
+            "damages":3,
+            "hp":2
+        }, 
+        {
+            "type":"Monster",
+            "name":"Grizzly Ferpoil",
+            "mana_cost":3,
+            "effect description":"",
+            "damages":3,
+            "hp":3
+        },
+        {
+            "type":"DrawSpell",
+            "name":"Intelligence des Arcanes",
+            "mana_cost":3,
+            "effect description":"Vous piochez 2 cartes",
+            "value":2
+        },
+        {
+            "type":"Monster",
+            "name":"Chef de raid",
+            "mana_cost":3,
+            "effect description":"",
+            "damages":2,
+            "hp":2
+        }, 
+        {
+            "type":"Monster",
+            "name":"Le Goinfre",
+            "mana_cost":3,
+            "effect description":"Il a trop mangé.",
+            "damages":1,
+            "hp":6
+        },
+        {
+            "type":"DamagesSpell",
+            "name": "Boule de feu", 
+            "mana_cost":4,
+            "effect_description":"Elle brûle tout, même l'eau.",
+            "value": 6,
+            "random": false
+        }, 
+        {
+            "type":"Monster",
+            "name":"Berserkos",
+            "mana_cost":3,
+            "effect description":"Il est juste trop fort en faites.",
+            "damages":7,
+            "hp":7
+        },
+        {
+            "type":"Monster",
+            "name":"Zitoune",
+            "mana_cost":4,
+            "effect description":"Il a pas tout comprit.",
+            "damages":4,
+            "hp":5
+        },
+        {
+            "type":"Monster",
+            "name":"Vavou",
+            "mana_cost":4,
+            "effect description":"On s'est pas d'où elle vient, mais elle est là.",
+            "damages":6,
+            "hp":7
+        }
+     ] 
+  }
