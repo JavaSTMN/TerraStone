@@ -18,10 +18,11 @@ public class Deck extends Observable{
 	
 	public Deck() {
         JSONParser parser = new JSONParser();
+        this.cards = new ArrayList<Card>();
         
-        while(cards.size() < this.MAX_CARD) {
+        while(this.cards.size() < this.MAX_CARD) {
 	        try {    
-			JSONArray a = (JSONArray) parser.parse(new FileReader("content.json"));
+			JSONArray a = (JSONArray) parser.parse(new FileReader("/res/content.json"));
 			
 			  for (Object o : a)
 			  {

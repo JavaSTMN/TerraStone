@@ -10,6 +10,7 @@ import javafx.scene.control.Separator;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import model.GameManager;
 import model.Player;
 
 public class UIManager {
@@ -22,10 +23,12 @@ public class UIManager {
 	@FXML
 	private AnchorPane playerTwoArea;
 	
-	private Player p1 = new Player();
+	//private Player p1 = new Player();
+	
+	private GameManager game;
 	
 	//pass a player argument after
-	private PlayerController pC1 = new PlayerController();
+	private PlayerController pC1;
 	
 	
 	
@@ -42,6 +45,11 @@ public class UIManager {
 	@FXML
 	private void initialize() {
 		try {
+			
+			this.game = new GameManager();
+			Player p1 = this.game.getP1();
+			pC1 = new PlayerController(p1);
+			
 			Pane paneJ1 = FXMLLoader.load(getClass().getResource("../view/Player.fxml"));
 			playerOneArea.getChildren().add(paneJ1); 
 			
