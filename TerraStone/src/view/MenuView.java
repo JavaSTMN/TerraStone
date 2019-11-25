@@ -27,7 +27,7 @@ public class MenuView {
 	
 	@FXML
 	public void pressPlay() {
-		this.main.initialisationConteneurPrincipal(getClass().getResource("../view/UiManager.fxml"));
+		this.main.initialisationConteneurPrincipal(getClass().getResource("../view/Manager.fxml"));
 	}
 	
 	@FXML

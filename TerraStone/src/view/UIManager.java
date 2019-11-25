@@ -22,11 +22,12 @@ public class UIManager {
 	@FXML
 	private AnchorPane playerTwoArea;
 	
-	/*private Player p1 = new Player();
+	private Player p1 = new Player();
 	
-	private PlayerView pView1 = new PlayerView(p1);
-	private PlayerController pc1 = new PlayerController(p1, pView1);
-	*/
+	//pass a player argument after
+	private PlayerController pC1 = new PlayerController();
+	
+	
 	
 	
 	public UIManager() {
@@ -51,6 +52,10 @@ public class UIManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void initPlayers() {
+		this.main.initialisationContenu(getClass().getResource("../view/Player.fxml"), "player");
 	}
 	
 	

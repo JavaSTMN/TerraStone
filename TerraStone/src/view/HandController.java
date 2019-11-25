@@ -1,7 +1,6 @@
 package view;
 
-import java.util.Observer;
-
+import application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,11 +8,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import model.CardFX;
 
-public abstract class HandController {
+public class HandController {
+	
+	private Main main;
 	
 	private ObservableList<CardFX> cardList = FXCollections.observableArrayList();
-
-	@FXML 
+	
+	@FXML
 	private HBox hand;
 	
 	@FXML
@@ -21,7 +22,8 @@ public abstract class HandController {
 	
 	@FXML
 	private void initialize() {
-		int nb = 1; 
+		//TODO : Null Pointer Exception on the setVlaue of the card in CardView.java
+		/*int nb = 1; 
 		cardList.add(new CardFX(nb, "test1", "ceci est un test1"));
 		//cardList.add(new CardFX(nb, "test2", "ceci est un test2"));
 		//cardList.add(new CardFX(nb, "test3", "ceci est un test3"));
@@ -32,10 +34,11 @@ public abstract class HandController {
 			System.out.println("in hand controller1");
 			
 		}
-		handLabel.setText(cardList.get(0).getName().getValue());
-
-		
-
+		handLabel.setText(cardList.get(0).getName().getValue());*/
+	}
+	
+	public void setMainApp(Main main) {
+		this.main = main;
 	}
 
 }

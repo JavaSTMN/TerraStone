@@ -6,7 +6,10 @@ import java.net.URL;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import view.HandController;
 import view.MenuView;
+import view.PlayerController;
+import view.UIManager;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -29,7 +32,7 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();*/
 			initialisationConteneurPrincipal(getClass().getResource("../view/Menu.fxml"));
-			initialisationContenu();
+			initialisationContenu(getClass().getResource("../view/Menu.fxml"), "menu");
 			
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -42,6 +45,7 @@ public class Main extends Application {
 		loader.setLocation(location);
 		//loader.setLocation(getClass().getResource("../view/Menu.fxml"));
 		try {
+			
 			//Le chargement nous donne notre conteneur
 			mainContainer = (BorderPane) loader.load();
 			//On définit une scène principale avec notre conteneur
@@ -55,20 +59,46 @@ public class Main extends Application {
 		}
 	}
 	
-	private void initialisationContenu() {
+	public void initialisationContenu(URL location, String type) {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("../view/Menu.fxml"));
+		loader.setLocation(location);
 		try {
 			//Nous récupérons notre conteneur qui contiendra les données
 			BorderPane conteneurPersonne = (BorderPane) loader.load();
 			//Qui nous ajoutons à notre conteneur principal
+			this.initCtrl(type, loader);
 			//Au centre, puisque'il s'agit d'un BorderPane
 			mainContainer.setCenter(conteneurPersonne);
-			MenuView menuCtrl = loader.getController();
-			menuCtrl.setMainApp(this);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	public void initCtrl(String type, FXMLLoader loader) {
+		switch(type) {
+		case "menu": 
+			MenuView menuCtrl = loader.getController();
+			menuCtrl.setMainApp(this);	
+			break;
+		case "manager":
+			UIManager managerCtrl = loader.getController();
+			managerCtrl.setMainApp(this);
+			managerCtrl.initPlayers();
+			break;
+		case "player":
+			PlayerController playerCtrl = loader.getController();
+			playerCtrl.setMainApp(this);
+			playerCtrl.initHand();
+			break;
+		case "hand":
+			//System.out.println("HAND : " + loader.getController());
+			HandController handCtrl = loader.getController();
+			handCtrl.setMainApp(this);
+			break;
+		}
+		
+		
 	}
 	
 	/**
