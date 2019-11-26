@@ -76,6 +76,7 @@ public class UIManager {
 			
 			game.init();
 			
+			FXMLLoader player1Loader = new FXMLLoader(getClass().getResource("../view/Player.fxml"));
 
 			this.separator.setOrientation(Orientation.HORIZONTAL);
 			this.separator.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
@@ -89,11 +90,12 @@ public class UIManager {
 			pC1 = player1Loader.<PlayerController>getController();
 			pC1.setModel(p1);
 			pC1.initPlayerHand();
-			//pC1.getPlayerHandController().initHandData();
+			pC1.getPlayerHandController().initHandData();
 			System.out.println("pC1 handController size " + pC1.getPlayerHandController().getCardList().size());
 
 			players.add(p1);
 			System.out.println("player " + p1.getHand());
+
 
       paneJ1.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
 			paneJ1.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()/2);
@@ -107,6 +109,13 @@ public class UIManager {
 			players.add(p2);
 			pC2.setModel(p2);
 			pC2.initPlayerHand();
+			addCardToHand(p2, pC2);
+			String mana = Integer.toString((pC2.getPlayerHandController().getCardList().get(3).getMana_cost()));
+
+			pC2.getPlayerHandController().getCardControllerList().get(3).initData(pC2.getPlayerHandController().getCardList().get(3).getName(), mana, pC2.getPlayerHandController().getCardList().get(3).getEffect_description());;
+
+
+			pC2.getPlayerHandController().initHandData();
 
 			//System.out.println("Model from ui manager " + pC2.getModel());
 
@@ -116,7 +125,7 @@ public class UIManager {
 			playerTwoArea.getChildren().add(paneJ2); 
 			
 			//initPlayersHand();
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -127,6 +136,10 @@ public class UIManager {
 		this.main.initialisationContenu(getClass().getResource("../view/Player.fxml"), "player");
 	}
 	
-	
+	public void addCardToHand(Player player, PlayerController pC) {
+		player.draw();
+		int last = player.getHand().getCards().size() - 1;
+		pC.getPlayerHandController().addCardToHand(player.getHand().getCards().get(last));
+	}
 
 }
