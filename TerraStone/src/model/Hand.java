@@ -28,6 +28,10 @@ public class Hand extends Observable{
 		notifyObservers("addCard");
 		return true;
 	}
+	
+	public  ArrayList<Card> getCards() {
+		return this.cards;
+	}
 
 
 }

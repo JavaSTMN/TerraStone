@@ -3,17 +3,22 @@ package view;
 import java.io.IOException;
 
 import application.Main;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.geometry.Orientation;
 import javafx.geometry.VPos;
+
+import javafx.scene.Parent;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import model.Card;
 import model.GameManager;
 import model.Player;
 
@@ -32,14 +37,30 @@ public class UIManager {
 	
 	private Separator separator = new Separator();
 	
-	//private Player p1 = new Player();
-	
+
 	private GameManager game;
 	
 	//pass a player argument after
 	private PlayerController pC1;
 	
+	//pass a player argument after
+	private PlayerController pC2;
 	
+	
+	private Player p1;
+	
+	private Player p2;
+	
+	
+	private ObservableList<Player> players = FXCollections.observableArrayList();
+
+	
+	
+	public UIManager() {
+		
+	}
+	
+
 	public void setMainApp(Main main) {
 		this.main = main;
 	}
@@ -50,26 +71,52 @@ public class UIManager {
 		try {
 			
 			this.game = new GameManager();
-			Player p1 = this.game.getP1();
-			//pC1 = new PlayerController(p1);
+			this.p1 = this.game.getP1();
+			this.p2 = this.game.getP2();
 			
-			Pane paneJ1 = FXMLLoader.load(getClass().getResource("../view/Player.fxml"));
-			paneJ1.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
-			paneJ1.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()/2);
-			playerOneArea.getChildren().add(paneJ1);
+			game.init();
 			
-			Pane paneJ2 = FXMLLoader.load(getClass().getResource("../view/Player.fxml"));
-			paneJ2.setLayoutY(Screen.getPrimary().getVisualBounds().getHeight()/4);
-			paneJ2.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
-			paneJ2.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()/2);
-			playerTwoArea.getChildren().add(paneJ2);
-			
-			//Separate the players area
+
 			this.separator.setOrientation(Orientation.HORIZONTAL);
 			this.separator.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
 			this.separator.setPrefHeight(1);
 			this.separator.setLayoutY(Screen.getPrimary().getVisualBounds().getHeight()/2);
 			this.containerArea.getChildren().add(this.separator);
+
+      
+      FXMLLoader player1Loader = new FXMLLoader(getClass().getResource("../view/Player.fxml"));
+			Parent paneJ1 = (Parent) player1Loader.load();
+			pC1 = player1Loader.<PlayerController>getController();
+			pC1.setModel(p1);
+			pC1.initPlayerHand();
+			//pC1.getPlayerHandController().initHandData();
+			System.out.println("pC1 handController size " + pC1.getPlayerHandController().getCardList().size());
+
+			players.add(p1);
+			System.out.println("player " + p1.getHand());
+
+      paneJ1.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
+			paneJ1.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()/2);
+			playerOneArea.getChildren().add(paneJ1); 
+			
+			
+			FXMLLoader player2Loader = new FXMLLoader(getClass().getResource("../view/Player.fxml"));
+			Parent paneJ2 =(Parent) player2Loader.load();
+
+			pC2 = player2Loader.getController();
+			players.add(p2);
+			pC2.setModel(p2);
+			pC2.initPlayerHand();
+
+			//System.out.println("Model from ui manager " + pC2.getModel());
+
+      paneJ2.setLayoutY(Screen.getPrimary().getVisualBounds().getHeight()/4);
+			paneJ2.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
+			paneJ2.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()/2);
+			playerTwoArea.getChildren().add(paneJ2); 
+			
+			//initPlayersHand();
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

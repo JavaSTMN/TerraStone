@@ -5,7 +5,6 @@ import application.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import model.CardFX;
 
 public class CardController  {
 	
@@ -33,6 +32,12 @@ public class CardController  {
 	
 	public void setMainApp(Main main) {
 		this.main = main;
+	}
+	
+	public void initData(String name, String mana, String description) {
+		cardName.setText(name);
+		manaValue.setText(mana);
+		cardDescription.setText(description);
 	}
 
 }

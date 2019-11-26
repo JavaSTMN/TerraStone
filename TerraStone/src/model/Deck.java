@@ -57,6 +57,7 @@ public class Deck extends Observable{
 		for(Card hand_card : this.cards) {
 			if(hand_card.equals(card)) {
 				this.cards.remove(hand_card);
+				return true;
 			}
 		}
 		notifyObservers("removeCard");
@@ -75,7 +76,7 @@ public class Deck extends Observable{
 		Card retour = null;
 		if(this.cards.size()>0) {
 			Collections.shuffle(this.cards);
-			retour = this.cards.get(0);
+			retour = this.cards.get(this.cards.size() - 1);
 		}
 		notifyObservers("pickCard");
 		return retour;

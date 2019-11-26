@@ -18,11 +18,11 @@ public class Player extends Observable{
 	 * Constructor
 	 */
 	public Player() {
-		//this.deck = new Deck();
+		this.deck = new Deck();
 		this.hero = new Hero();
 		this.hand = new Hand();
 		this.board = new Board();
-		//this.tmp_deck = new Deck();
+		this.tmp_deck = new Deck();
 	}
 	
 	/**
@@ -151,9 +151,16 @@ public class Player extends Observable{
 	
 	public boolean draw() {
 		Card newCard = this.tmp_deck.pickCard();
+
 		if(newCard != null) {
+			System.out.println("draw if");
+
 			this.hand.addCard(newCard);
+			System.out.println("addCard");
+			System.out.println("New card "+ newCard);
+
 			this.tmp_deck.removeCard(newCard);
+
 		} else {
 			this.hero.exhaustHero();
 		}
