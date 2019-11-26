@@ -5,19 +5,19 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane prefHeight="360.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.PlayerController">
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.PlayerController">
    <bottom>
-      <AnchorPane fx:id="handArea" prefHeight="256.0" prefWidth="1080.0" BorderPane.alignment="CENTER" />
+      <AnchorPane fx:id="handArea" BorderPane.alignment="CENTER" />
    </bottom>
    <top>
-      <Pane prefHeight="235.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+      <Pane BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane fx:id="deckArea" layoutX="889.0" prefHeight="240.0" prefWidth="191.0">
+            <AnchorPane fx:id="deckArea" layoutX="889.0">
                <children>
                   <Label alignment="CENTER" layoutX="73.0" layoutY="76.0" text="Deck" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="boardArea" prefHeight="238.0" prefWidth="915.0">
+            <AnchorPane fx:id="boardArea">
                <children>
                   <Label layoutX="379.0" layoutY="87.0" text="Board" />
                </children>
@@ -26,6 +26,6 @@
       </Pane>
    </top>
    <right>
-      <AnchorPane fx:id="heroArea" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <AnchorPane fx:id="heroArea" BorderPane.alignment="CENTER" />
    </right>
 </BorderPane>

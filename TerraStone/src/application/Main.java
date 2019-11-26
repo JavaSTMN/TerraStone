@@ -24,8 +24,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			mainStage = primaryStage;
-			mainStage.setTitle("TerraStone");
+			this.mainStage = primaryStage;
+			this.mainStage.setTitle("TerraStone");
 			/*BorderPane root = new BorderPane();
 			Scene scene = new Scene(root,400,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -40,7 +40,7 @@ public class Main extends Application {
 	}
 	
 	public void initialisationConteneurPrincipal(URL location) {
-
+		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(location);
 		//loader.setLocation(getClass().getResource("../view/Menu.fxml"));
@@ -50,13 +50,14 @@ public class Main extends Application {
 			
 			//Le chargement nous donne notre conteneur
 			this.mainContainer = (BorderPane) loader.load();
+			this.mainStage.setFullScreen(true);
+			
 			//On définit une scène principale avec notre conteneur
-			Scene scene = new Scene(mainContainer);
+			Scene scene = new Scene(mainContainer, this.mainStage.getWidth(), this.mainStage.getHeight());
 			//Que nous affectons à notre Stage
 			this.mainStage.setScene(scene);
 			this.mainStage.show();
 			//Set full screen
-			this.mainStage.setFullScreen(true);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
