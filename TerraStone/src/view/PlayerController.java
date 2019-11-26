@@ -25,22 +25,28 @@ public class PlayerController {
 	@FXML 
 	private AnchorPane deckArea;
 
+	private HandController playerHand;
 	
 	@FXML
 	private void initialize() {
 		
-		/*try {
+		try {
 			
 			System.out.println("INIT HAND FOR PLAYER");
 
-			HBox hand = FXMLLoader.load(getClass().getResource("../view/Hand.fxml"));
+			FXMLLoader handLoader = new FXMLLoader(getClass().getResource("../view/Hand.fxml"));
+			playerHand = handLoader.getController();
+			
+			HBox hand = handLoader.load();
 			handArea.getChildren().add(hand);
 			
+			System.out.println("END INIT HAND FOR PLAYER");
+
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		
 	}
 

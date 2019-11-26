@@ -30,6 +30,8 @@ public class UIManager {
 	//pass a player argument after
 	private PlayerController pC1;
 	
+	//pass a player argument after
+	private PlayerController pC2;
 	
 	
 	
@@ -48,13 +50,24 @@ public class UIManager {
 			
 			this.game = new GameManager();
 			Player p1 = this.game.getP1();
-			//pC1 = new PlayerController(p1);
 			
-			Pane paneJ1 = FXMLLoader.load(getClass().getResource("../view/Player.fxml"));
+			FXMLLoader player1Loader = new FXMLLoader(getClass().getResource("../view/Player.fxml"));
+			pC1 = player1Loader.getController();
+
+			Pane paneJ1 = player1Loader.load();
 			playerOneArea.getChildren().add(paneJ1); 
 			
-			Pane paneJ2 = FXMLLoader.load(getClass().getResource("../view/Player.fxml"));
+			System.out.println("Player 1 pane");
+			
+			FXMLLoader player2Loader = new FXMLLoader(getClass().getResource("../view/Player.fxml"));
+			pC2 = player2Loader.getController();
+
+			Pane paneJ2 = player2Loader.load();
 			playerTwoArea.getChildren().add(paneJ2); 
+			
+			System.out.println("Player 2 pane");
+
+			
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
