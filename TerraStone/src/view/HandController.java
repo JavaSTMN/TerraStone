@@ -61,6 +61,10 @@ public class HandController {
 		this.cardList = cardList;
 	}
 
+	public ArrayList<CardController> getCardControllerList() {
+		return this.cardControllerList;
+	}
+	
 	public void initHandData() {
 		for(int i = 0; i<3; i++) {
 			String mana = Integer.toString((cardList.get(i).getMana_cost()));
@@ -68,5 +72,20 @@ public class HandController {
 		}
 	}
 	
+	public void addCardToHand(Card card) {
+		FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("../view/Card.fxml"));
+		Parent parent;
+		try {
+			parent = (Parent) cardLoader.load();			
+			cardControllerList.add(cardLoader.getController());
+			hand.getChildren().add(parent);
+			
+			cardList.add(card);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 	
 }
