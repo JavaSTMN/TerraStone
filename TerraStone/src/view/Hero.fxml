@@ -20,9 +20,9 @@
         </rowConstraints>
          <children>
             <Label fx:id="heroName" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="147.0" text="heroName" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-            <Label fx:id="health" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="77.0" text="health" GridPane.columnIndex="1" />
-            <Label fx:id="mana" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="76.0" text="mana" GridPane.rowIndex="2" />
-            <Label fx:id="manaMax" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="80.0" text="manaMax" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="health" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="77.0" text="health" textFill="RED" GridPane.columnIndex="1" />
+            <Label fx:id="mana" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="76.0" text="mana" textFill="#000fee" GridPane.rowIndex="2" />
+            <Label fx:id="manaMax" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="80.0" text="manaMax" textFill="#000fee" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </center>

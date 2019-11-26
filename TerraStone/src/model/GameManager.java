@@ -19,6 +19,10 @@ public class GameManager {
 			Player p2 = this.getP2();
 			p2.getLaPiece();
 		}
+		else {
+			Player p1 = this.getP1();
+			p1.getLaPiece();
+		}
 		
 		//affichage carte en plus
 	}

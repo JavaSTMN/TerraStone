@@ -33,6 +33,8 @@ public class PlayerController {
 
 	private HandController playerHandController;
 	
+	private HeroController heroController;
+	
 	private Player model;
 	
 	@FXML
@@ -48,7 +50,9 @@ public class PlayerController {
 			handArea.getChildren().add(hand);
 		
 			
-			BorderPane hero = FXMLLoader.load(getClass().getResource("../view/Hero.fxml"));
+			FXMLLoader heroLoader = new FXMLLoader(getClass().getResource("../view/Hero.fxml"));
+			Parent hero = (Parent)heroLoader.load();
+			setHeroController(heroLoader.getController());
 			heroArea.getChildren().add(hero);
 			
 			
@@ -81,11 +85,19 @@ public class PlayerController {
 	}
 
 	public HandController getPlayerHandController() {
-		return playerHandController;
+		return this.playerHandController;
 	}
 
 	public void setPlayerHandController(HandController playerHandController) {
 		this.playerHandController = playerHandController;
+	}
+	
+	public HeroController getHeroController() {
+		return this.heroController;
+	}
+	
+	public void setHeroController(HeroController heroController) {
+		this.heroController = heroController;
 	}
 	
 	public void initPlayerHand() {
@@ -94,5 +106,9 @@ public class PlayerController {
 		}		
 		System.out.println("Model from ui manager " + this.model);
 
+	}
+	
+	public void initPlayerHero() {
+		this.heroController.setHero(this.model.getHero());
 	}
 }

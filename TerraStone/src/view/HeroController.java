@@ -3,6 +3,7 @@ package view;
 import application.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import model.Hero;
 
 public class HeroController {
 	
@@ -20,6 +21,7 @@ public class HeroController {
 	@FXML
 	private Label manaMax;
 	
+	private Hero hero;
 	
 	
 	@FXML
@@ -29,6 +31,23 @@ public class HeroController {
 	
 	public void setMainApp(Main main) {
 		this.main = main;
+	}
+	
+	public void initHeroData() {
+		System.out.println(this.hero.getName());
+		this.heroName.setText(this.hero.getName());
+		this.health.setText(Integer.toString(this.hero.getHealth()));
+		this.mana.setText(Integer.toString(this.hero.getMana()));
+		this.manaMax.setText(Integer.toString(this.hero.getMana_max()));
+
+	}
+
+	public Hero getHero() {
+		return hero;
+	}
+
+	public void setHero(Hero hero) {
+		this.hero = hero;
 	}
 
 }

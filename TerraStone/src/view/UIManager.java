@@ -110,7 +110,12 @@ public class UIManager {
 			players.add(p2);
 			pC2.setModel(p2);
 			pC2.initPlayerHand();
-			addCardToHand(p2, pC2);
+			if(this.game.getOrder()) {
+				addCardToHand(p2, pC2);	
+			} else {
+				addCardToHand(p1, pC1);
+			}
+			
 
 
 			pC2.getPlayerHandController().initHandData();
@@ -125,6 +130,12 @@ public class UIManager {
 			playerTwoArea.getChildren().add(paneJ2); 
 			
 			//initPlayersHand();
+			
+			//Init hero data
+			pC1.initPlayerHero();
+			pC2.initPlayerHero();
+			pC1.getHeroController().initHeroData();
+			pC2.getHeroController().initHeroData();
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
