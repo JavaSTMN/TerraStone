@@ -10,6 +10,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
+import javafx.stage.Screen;
 import model.Card;
 import model.Player;
 
@@ -33,6 +35,8 @@ public class PlayerController {
 
 	private HandController playerHandController;
 	
+	private BoardController playerBoardController;
+  
 	private HeroController heroController;
 	
 	private Player model;
@@ -55,7 +59,12 @@ public class PlayerController {
 			setHeroController(heroLoader.getController());
 			heroArea.getChildren().add(hero);
 			
-			
+			FXMLLoader boardLoader = new FXMLLoader(getClass().getResource("../view/Board.fxml")); 
+			Parent board = (Parent) boardLoader.load();
+			setPlayerBoardController(boardLoader.getController());
+			((Region) board).setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
+			((Region) board).setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()* (2/3));
+			boardArea.getChildren().add(board);			
 			System.out.println("END INIT HAND FOR PLAYER");
 
 			
@@ -107,6 +116,38 @@ public class PlayerController {
 		System.out.println("Model from ui manager " + this.model);
 
 	}
+
+	public BoardController getPlayerBoardController() {
+		return playerBoardController;
+	}
+
+	public void setPlayerBoardController(BoardController playerBoardController) {
+		this.playerBoardController = playerBoardController;
+	}
+	
+	@FXML
+	public void draw() {
+		int handSize = this.playerHandController.getCardList().size();
+		if(handSize<10) {
+			this.addCardToHand();
+		}
+	}
+	
+	public void addCardToHand() {
+		//add card in the model
+		this.model.draw();
+		//int last = this.model.getHand().getCards().size()- 1;
+		int last = this.playerHandController.getCardList().size() ;
+		
+		//add view of the new card
+		this.getPlayerHandController().addCardToHand(this.model.getHand().getCards().get(last));
+		
+		//display data
+		String name = this.getPlayerHandController().getCardList().get(last).getName();
+		String mana = Integer.toString((this.getPlayerHandController().getCardList().get(last).getMana_cost()));
+		String description = this.getPlayerHandController().getCardList().get(last).getEffect_description();
+		this.getPlayerHandController().getCardControllerList().get(last).initData(name, mana, description);
+
 	
 	public void initPlayerHero() {
 		this.heroController.setHero(this.model.getHero());
