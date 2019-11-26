@@ -24,8 +24,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			mainStage = primaryStage;
-			mainStage.setTitle("TerraStone");
+			this.mainStage = primaryStage;
+			this.mainStage.setTitle("TerraStone");
 			/*BorderPane root = new BorderPane();
 			Scene scene = new Scene(root,400,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -40,26 +40,33 @@ public class Main extends Application {
 	}
 	
 	public void initialisationConteneurPrincipal(URL location) {
-
+		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(location);
 		//loader.setLocation(getClass().getResource("../view/Menu.fxml"));
 		try {
+			//close the main stage for menu and open it for manager
+			this.mainStage.close();
 			
 			//Le chargement nous donne notre conteneur
-			mainContainer = (BorderPane) loader.load();
+			this.mainContainer = (BorderPane) loader.load();
+			this.mainStage.setFullScreen(true);
+			
 			//On définit une scène principale avec notre conteneur
-			Scene scene = new Scene(mainContainer);
+			Scene scene = new Scene(mainContainer, this.mainStage.getWidth(), this.mainStage.getHeight());
 			//Que nous affectons à notre Stage
-			mainStage.setScene(scene);
-			//Pour l'afficher
-			mainStage.show();
+			this.mainStage.setScene(scene);
+			this.mainStage.show();
+			//Set full screen
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
 	public void initialisationContenu(URL location, String type) {
+		this.mainStage.setFullScreen(true);
+		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(location);
 		try {
@@ -68,7 +75,7 @@ public class Main extends Application {
 			//Qui nous ajoutons à notre conteneur principal
 			this.initCtrl(type, loader);
 			//Au centre, puisque'il s'agit d'un BorderPane
-			mainContainer.setCenter(conteneurPersonne);
+			this.mainContainer.setCenter(conteneurPersonne);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
