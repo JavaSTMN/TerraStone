@@ -185,5 +185,14 @@ public class Player extends Observable{
 		notifyObservers("monsterAttack");
 		return false;
 	}
+	
+	public void resetCardOnBoard() {
+		Board b = this.getBoard();
+		ArrayList<Card> cards = b.getCards();
+		for(Card card : cards) {
+			Monster monster = (Monster) card;
+			monster.setHasAttacked(false);
+		}
+	}
 
 }

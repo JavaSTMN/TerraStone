@@ -75,10 +75,16 @@ public class GameManager {
 			Hero h1 = this.p1.getHero();
 			h1.refresh_mana();
 			h1.setHeroPowerIsUsed(false);
-		} else {
+			this.p1.resetCardOnBoard();
+			Player p2 = this.getP2();
+			p2.draw();
+			} else {
 			Hero h2 = this.p2.getHero();
 			h2.refresh_mana();
 			h2.setHeroPowerIsUsed(false);
+			this.p2.resetCardOnBoard();
+			Player p1 = this.getP1();
+			p1.draw();
 		}
 		
 		this.setOrder(!order);

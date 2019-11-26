@@ -9,6 +9,9 @@ public class Board extends Observable {
 	private ArrayList<Card> cards;
 	final int MAX_CARD = 7;
 	
+	public ArrayList<Card> getCards(){
+		return this.cards;
+	}
 	public boolean addCard(Card card) {
 		if(this.MAX_CARD == this.cards.size()) {
 			return false;

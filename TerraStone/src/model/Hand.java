@@ -5,7 +5,11 @@ import java.util.ArrayList;
 @SuppressWarnings("deprecation")
 public class Hand extends Observable{
 	private ArrayList<Card> cards;
-	final int MAX_CARD=10; 
+	final int MAX_CARD=10;
+	
+	public Hand() {
+		this.cards = new ArrayList<Card>();
+	}
 	
 	public boolean removeCard(Card card) {
 		for(Card hand_card : this.cards) {
