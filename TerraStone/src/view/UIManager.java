@@ -111,9 +111,6 @@ public class UIManager {
 			pC2.setModel(p2);
 			pC2.initPlayerHand();
 			addCardToHand(p2, pC2);
-			String mana = Integer.toString((pC2.getPlayerHandController().getCardList().get(3).getMana_cost()));
-
-			pC2.getPlayerHandController().getCardControllerList().get(3).initData(pC2.getPlayerHandController().getCardList().get(3).getName(), mana, pC2.getPlayerHandController().getCardList().get(3).getEffect_description());;
 
 
 			pC2.getPlayerHandController().initHandData();
@@ -143,6 +140,11 @@ public class UIManager {
 		player.draw();
 		int last = player.getHand().getCards().size() - 1;
 		pC.getPlayerHandController().addCardToHand(player.getHand().getCards().get(last));
+		
+		String mana = Integer.toString((pC.getPlayerHandController().getCardList().get(last).getMana_cost()));
+
+		pC.getPlayerHandController().getCardControllerList().get(3).initData(pC.getPlayerHandController().getCardList().get(last).getName(), mana, pC.getPlayerHandController().getCardList().get(last).getEffect_description());;
+
 	}
 
 }

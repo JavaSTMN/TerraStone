@@ -81,7 +81,6 @@ public class Main extends Application {
 		}
 	}
 	
-	
 	public void initCtrl(String type, FXMLLoader loader) {
 		switch(type) {
 		case "menu": 
