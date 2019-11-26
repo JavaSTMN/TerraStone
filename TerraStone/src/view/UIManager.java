@@ -3,13 +3,17 @@ package view;
 import java.io.IOException;
 
 import application.Main;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import model.Card;
 import model.GameManager;
 import model.Player;
 
@@ -23,8 +27,6 @@ public class UIManager {
 	@FXML
 	private AnchorPane playerTwoArea;
 	
-	//private Player p1 = new Player();
-	
 	private GameManager game;
 	
 	//pass a player argument after
@@ -33,6 +35,14 @@ public class UIManager {
 	//pass a player argument after
 	private PlayerController pC2;
 	
+	
+	private Player p1;
+	
+	private Player p2;
+	
+	
+	private ObservableList<Player> players = FXCollections.observableArrayList();
+
 	
 	
 	public UIManager() {
@@ -49,24 +59,39 @@ public class UIManager {
 		try {
 			
 			this.game = new GameManager();
-			Player p1 = this.game.getP1();
+			this.p1 = this.game.getP1();
+			this.p2 = this.game.getP2();
+			
+			game.init();
 			
 			FXMLLoader player1Loader = new FXMLLoader(getClass().getResource("../view/Player.fxml"));
-			pC1 = player1Loader.getController();
+			Parent pane1 = (Parent) player1Loader.load();
+			pC1 = player1Loader.<PlayerController>getController();
+			pC1.setModel(p1);
+			pC1.initPlayerHand();
+			//pC1.getPlayerHandController().initHandData();
+			System.out.println("pC1 handController size " + pC1.getPlayerHandController().getCardList().size());
 
-			Pane paneJ1 = player1Loader.load();
+			players.add(p1);
+			System.out.println("player " + p1.getHand());
+
+			Pane paneJ1 = (Pane) pane1;
 			playerOneArea.getChildren().add(paneJ1); 
 			
-			System.out.println("Player 1 pane");
 			
 			FXMLLoader player2Loader = new FXMLLoader(getClass().getResource("../view/Player.fxml"));
-			pC2 = player2Loader.getController();
+			Parent paneJ2 =(Parent) player2Loader.load();
 
-			Pane paneJ2 = player2Loader.load();
+			pC2 = player2Loader.getController();
+			players.add(p2);
+			pC2.setModel(p2);
+			pC2.initPlayerHand();
+
+			//System.out.println("Model from ui manager " + pC2.getModel());
+
 			playerTwoArea.getChildren().add(paneJ2); 
 			
-			System.out.println("Player 2 pane");
-
+			//initPlayersHand();
 			
 
 		} catch (IOException e) {

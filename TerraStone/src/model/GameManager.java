@@ -12,13 +12,15 @@ public class GameManager {
 	 * Constructor
 	 */
 	public GameManager() {
-		this.setP1(new Player());
-		this.setP2(new Player());
+		this.p1  = new Player();
+		this.p2 = new Player();
 		this.setOrder((new Random()).nextBoolean());
 		if(this.getOrder()) {
 			Player p2 = this.getP2();
 			p2.getLaPiece();
 		}
+		
+		//affichage carte en plus
 	}
 
 
@@ -88,6 +90,13 @@ public class GameManager {
 		}
 		
 		this.setOrder(!order);
+	}
+	
+	public void init() {
+		for(int i = 0; i<3; i++) {
+			this.p1.draw();
+			this.p2.draw();
+		}
 	}
 
 

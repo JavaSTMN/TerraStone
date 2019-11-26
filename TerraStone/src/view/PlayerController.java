@@ -5,9 +5,11 @@ import java.io.IOException;
 import application.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import model.Card;
 import model.Player;
 
 
@@ -25,7 +27,9 @@ public class PlayerController {
 	@FXML 
 	private AnchorPane deckArea;
 
-	private HandController playerHand;
+	private HandController playerHandController;
+	
+	private Player model;
 	
 	@FXML
 	private void initialize() {
@@ -35,10 +39,11 @@ public class PlayerController {
 			System.out.println("INIT HAND FOR PLAYER");
 
 			FXMLLoader handLoader = new FXMLLoader(getClass().getResource("../view/Hand.fxml"));
-			playerHand = handLoader.getController();
-			
-			HBox hand = handLoader.load();
+			Parent hand =(Parent) handLoader.load();
+			setPlayerHandController(handLoader.getController());
 			handArea.getChildren().add(hand);
+		
+			
 			
 			System.out.println("END INIT HAND FOR PLAYER");
 
@@ -58,5 +63,29 @@ public class PlayerController {
 		//this.main.initialisationContenu(getClass().getResource("../view/Hand.fxml"), "hand");
 	
 		
+	}
+
+	public Player getModel() {
+		return model;
+	}
+
+	public void setModel(Player model) {
+		this.model = model;
+	}
+
+	public HandController getPlayerHandController() {
+		return playerHandController;
+	}
+
+	public void setPlayerHandController(HandController playerHandController) {
+		this.playerHandController = playerHandController;
+	}
+	
+	public void initPlayerHand() {
+		for(Card card : this.model.getHand().getCards()) {
+			this.playerHandController.getCardList().add(card);
+		}		
+		System.out.println("Model from ui manager " + this.model);
+
 	}
 }
