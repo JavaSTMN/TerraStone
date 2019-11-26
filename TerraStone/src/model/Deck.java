@@ -21,21 +21,24 @@ public class Deck extends Observable{
         this.cards = new ArrayList<Card>();
         
         while(this.cards.size() < this.MAX_CARD) {
-	        try {    
-			JSONArray a = (JSONArray) parser.parse(new FileReader("/res/content.json"));
+	        try {
+	        	//JSONArray a = (JSONArray) parser.parse(new FileReader("./res/content.json"));
+	        	JSONObject obj = (JSONObject) parser.parse(new FileReader("./res/content.json"));
+	        	JSONArray a = (JSONArray) obj.get("cards");
+	        	
 			
 			  for (Object o : a)
 			  {
 			    JSONObject card = (JSONObject) o;
 			    switch((String) card.get("type")) {
 			    	case "DamagesSpell":
-			    		cards.add(new DamagesSpell((int) card.get("mana_cost"),(String) card.get("name"),(String) card.get("effect_description"),(String) card.get("type"),(int) card.get("value"),(boolean) card.get("random")));
+			    		cards.add(new DamagesSpell((Integer)((Long) card.get("mana_cost")).intValue(),(String) card.get("name"),(String) card.get("effect_description"),(String) card.get("type"),(Integer)((Long) card.get("value")).intValue(),(boolean) card.get("random")));
 			    		break;
 			    	case "Monster":
-			    		cards.add(new Monster((int) card.get("mana_cost"),(String) card.get("name"),(String) card.get("effect_description"),(String) card.get("type"),(int) card.get("damages"),(int) card.get("hp")));
+			    		cards.add(new Monster((Integer)((Long) card.get("mana_cost")).intValue(),(String) card.get("name"),(String) card.get("effect_description"),(String) card.get("type"),(Integer)((Long) card.get("damages")).intValue(),(Integer)((Long) card.get("hp")).intValue()));
 				    	break;
 			    	case "DrawSpell":
-			    		cards.add(new DrawSpell((int) card.get("mana_cost"),(String) card.get("name"),(String) card.get("effect_description"),(String) card.get("type"),(int) card.get("value")));
+			    		cards.add(new DrawSpell((Integer)((Long) card.get("mana_cost")).intValue(),(String) card.get("name"),(String) card.get("effect_description"),(String) card.get("type"),(Integer)((Long) card.get("value")).intValue()));
 				    	break;
 				    default:
 				    	break;
