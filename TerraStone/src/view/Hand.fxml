@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 
-<BorderPane prefHeight="300.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.HandController">
-   <center>
-      <Pane prefHeight="300.0" prefWidth="950.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label fx:id="handLabel" text="Hand TEST DE LA MORT QUI TUE" />
-            <HBox fx:id="hand" prefHeight="214.0" prefWidth="950.0" />
-         </children>
-      </Pane>
-   </center>
-</BorderPane>
+
+<HBox fx:id="hand" alignment="CENTER" prefHeight="283.0" prefWidth="933.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.HandController" />
