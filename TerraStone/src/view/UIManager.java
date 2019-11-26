@@ -76,8 +76,6 @@ public class UIManager {
 			
 			game.init();
 			
-			FXMLLoader player1Loader = new FXMLLoader(getClass().getResource("../view/Player.fxml"));
-
 			this.separator.setOrientation(Orientation.HORIZONTAL);
 			this.separator.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
 			this.separator.setPrefHeight(1);
@@ -85,7 +83,7 @@ public class UIManager {
 			this.containerArea.getChildren().add(this.separator);
 
       
-      FXMLLoader player1Loader = new FXMLLoader(getClass().getResource("../view/Player.fxml"));
+			FXMLLoader player1Loader = new FXMLLoader(getClass().getResource("../view/Player.fxml"));
 			Parent paneJ1 = (Parent) player1Loader.load();
 			pC1 = player1Loader.<PlayerController>getController();
 			pC1.setModel(p1);
@@ -95,10 +93,13 @@ public class UIManager {
 
 			players.add(p1);
 			System.out.println("player " + p1.getHand());
+			
+			Pane pane1 = (Pane)paneJ1;
 
 
-      paneJ1.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
-			paneJ1.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()/2);
+
+			pane1.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
+			pane1.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()/2);
 			playerOneArea.getChildren().add(paneJ1); 
 			
 			
@@ -116,12 +117,14 @@ public class UIManager {
 
 
 			pC2.getPlayerHandController().initHandData();
+			
+			Pane pane2 = (Pane)paneJ2;
 
 			//System.out.println("Model from ui manager " + pC2.getModel());
 
-      paneJ2.setLayoutY(Screen.getPrimary().getVisualBounds().getHeight()/4);
-			paneJ2.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
-			paneJ2.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()/2);
+			pane2.setLayoutY(Screen.getPrimary().getVisualBounds().getHeight()/4);
+			pane2.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
+			pane2.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()/2);
 			playerTwoArea.getChildren().add(paneJ2); 
 			
 			//initPlayersHand();
