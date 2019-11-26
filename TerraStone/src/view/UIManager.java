@@ -48,7 +48,7 @@ public class UIManager {
 			
 			this.game = new GameManager();
 			Player p1 = this.game.getP1();
-			pC1 = new PlayerController(p1);
+			//pC1 = new PlayerController(p1);
 			
 			Pane paneJ1 = FXMLLoader.load(getClass().getResource("../view/Player.fxml"));
 			playerOneArea.getChildren().add(paneJ1); 

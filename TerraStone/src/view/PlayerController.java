@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import model.Player;
 
 
 public class PlayerController {
@@ -23,17 +24,12 @@ public class PlayerController {
 	
 	@FXML 
 	private AnchorPane deckArea;
-	private Player player;
-	
-	PlayerController(Player p) {
-		this.player = p;
-		System.out.println(this.player);
-	}
+
 	
 	@FXML
 	private void initialize() {
 		
-		try {
+		/*try {
 			
 			System.out.println("INIT HAND FOR PLAYER");
 
@@ -44,7 +40,7 @@ public class PlayerController {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
 	}
 

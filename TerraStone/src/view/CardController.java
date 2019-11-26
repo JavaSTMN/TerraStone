@@ -1,7 +1,6 @@
 package view;
 
 
-import application.CardMain;
 import application.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
