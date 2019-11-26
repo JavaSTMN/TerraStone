@@ -36,6 +36,8 @@ public class PlayerController {
 	private HandController playerHandController;
 	
 	private BoardController playerBoardController;
+  
+	private HeroController heroController;
 	
 	private Player model;
 	
@@ -52,7 +54,9 @@ public class PlayerController {
 			handArea.getChildren().add(hand);
 		
 			
-			BorderPane hero = FXMLLoader.load(getClass().getResource("../view/Hero.fxml"));
+			FXMLLoader heroLoader = new FXMLLoader(getClass().getResource("../view/Hero.fxml"));
+			Parent hero = (Parent)heroLoader.load();
+			setHeroController(heroLoader.getController());
 			heroArea.getChildren().add(hero);
 			
 			FXMLLoader boardLoader = new FXMLLoader(getClass().getResource("../view/Board.fxml")); 
@@ -90,11 +94,19 @@ public class PlayerController {
 	}
 
 	public HandController getPlayerHandController() {
-		return playerHandController;
+		return this.playerHandController;
 	}
 
 	public void setPlayerHandController(HandController playerHandController) {
 		this.playerHandController = playerHandController;
+	}
+	
+	public HeroController getHeroController() {
+		return this.heroController;
+	}
+	
+	public void setHeroController(HeroController heroController) {
+		this.heroController = heroController;
 	}
 	
 	public void initPlayerHand() {
@@ -136,5 +148,8 @@ public class PlayerController {
 		String description = this.getPlayerHandController().getCardList().get(last).getEffect_description();
 		this.getPlayerHandController().getCardControllerList().get(last).initData(name, mana, description);
 
+	
+	public void initPlayerHero() {
+		this.heroController.setHero(this.model.getHero());
 	}
 }
