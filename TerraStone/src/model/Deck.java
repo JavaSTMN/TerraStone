@@ -25,20 +25,19 @@ public class Deck extends Observable{
 	        	//JSONArray a = (JSONArray) parser.parse(new FileReader("./res/content.json"));
 	        	JSONObject obj = (JSONObject) parser.parse(new FileReader("./res/content.json"));
 	        	JSONArray a = (JSONArray) obj.get("cards");
-	        	
 			
 			  for (Object o : a)
 			  {
 			    JSONObject card = (JSONObject) o;
 			    switch((String) card.get("type")) {
 			    	case "DamagesSpell":
-			    		cards.add(new DamagesSpell((Integer)((Long) card.get("mana_cost")).intValue(),(String) card.get("name"),(String) card.get("effect_description"),(String) card.get("type"),(Integer)((Long) card.get("value")).intValue(),(boolean) card.get("random")));
+			    		this.cards.add(new DamagesSpell((Integer)((Long) card.get("mana_cost")).intValue(),(String) card.get("name"),(String) card.get("effect_description"),(String) card.get("type"),(Integer)((Long) card.get("value")).intValue(),(boolean) card.get("random")));
 			    		break;
 			    	case "Monster":
-			    		cards.add(new Monster((Integer)((Long) card.get("mana_cost")).intValue(),(String) card.get("name"),(String) card.get("effect_description"),(String) card.get("type"),(Integer)((Long) card.get("damages")).intValue(),(Integer)((Long) card.get("hp")).intValue()));
+			    		this.cards.add(new Monster((Integer)((Long) card.get("mana_cost")).intValue(),(String) card.get("name"),(String) card.get("effect_description"),(String) card.get("type"),(Integer)((Long) card.get("damages")).intValue(),(Integer)((Long) card.get("hp")).intValue()));
 				    	break;
 			    	case "DrawSpell":
-			    		cards.add(new DrawSpell((Integer)((Long) card.get("mana_cost")).intValue(),(String) card.get("name"),(String) card.get("effect_description"),(String) card.get("type"),(Integer)((Long) card.get("value")).intValue()));
+			    		this.cards.add(new DrawSpell((Integer)((Long) card.get("mana_cost")).intValue(),(String) card.get("name"),(String) card.get("effect_description"),(String) card.get("type"),(Integer)((Long) card.get("value")).intValue()));
 				    	break;
 				    default:
 				    	break;
