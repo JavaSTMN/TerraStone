@@ -6,6 +6,7 @@ import application.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import model.Player;
@@ -25,6 +26,8 @@ public class PlayerController {
 	@FXML 
 	private AnchorPane deckArea;
 
+	@FXML
+	private AnchorPane heroArea;
 	
 	@FXML
 	private void initialize() {
@@ -35,6 +38,9 @@ public class PlayerController {
 
 			HBox hand = FXMLLoader.load(getClass().getResource("../view/Hand.fxml"));
 			handArea.getChildren().add(hand);
+			
+			BorderPane hero = FXMLLoader.load(getClass().getResource("../view/Hero.fxml"));
+			heroArea.getChildren().add(hero);
 			
 			
 		} catch (IOException e) {
