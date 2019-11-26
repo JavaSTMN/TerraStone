@@ -153,11 +153,7 @@ public class Player extends Observable{
 		Card newCard = this.tmp_deck.pickCard();
 
 		if(newCard != null) {
-			System.out.println("draw if");
-
 			this.hand.addCard(newCard);
-			System.out.println("addCard");
-			System.out.println("New card "+ newCard);
 
 			this.tmp_deck.removeCard(newCard);
 

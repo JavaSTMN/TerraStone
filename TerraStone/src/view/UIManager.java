@@ -89,7 +89,9 @@ public class UIManager {
 			pC1.setModel(p1);
 			pC1.initPlayerHand();
 			pC1.getPlayerHandController().initHandData();
-			System.out.println("pC1 handController size " + pC1.getPlayerHandController().getCardList().size());
+			
+			//System.out.println("pC1 handController size " + pC1.getPlayerHandController().getCardList().size() +
+			//		" pC1 cardList " + pC1.getPlayerHandController().getCardControllerList().size());
 
 			players.add(p1);
 			System.out.println("player " + p1.getHand());
@@ -107,14 +109,15 @@ public class UIManager {
 			Parent paneJ2 =(Parent) player2Loader.load();
 
 			pC2 = player2Loader.getController();
-			players.add(p2);
+
 			pC2.setModel(p2);
 			pC2.initPlayerHand();
-			addCardToHand(p2, pC2);
-
-
 			pC2.getPlayerHandController().initHandData();
-			
+
+			pC2.addCardToHand();
+
+			players.add(p2);
+
 			Pane pane2 = (Pane)paneJ2;
 
 			//System.out.println("Model from ui manager " + pC2.getModel());
@@ -136,15 +139,5 @@ public class UIManager {
 		this.main.initialisationContenu(getClass().getResource("../view/Player.fxml"), "player");
 	}
 	
-	public void addCardToHand(Player player, PlayerController pC) {
-		player.draw();
-		int last = player.getHand().getCards().size() - 1;
-		pC.getPlayerHandController().addCardToHand(player.getHand().getCards().get(last));
-		
-		String mana = Integer.toString((pC.getPlayerHandController().getCardList().get(last).getMana_cost()));
-
-		pC.getPlayerHandController().getCardControllerList().get(3).initData(pC.getPlayerHandController().getCardList().get(last).getName(), mana, pC.getPlayerHandController().getCardList().get(last).getEffect_description());;
-
-	}
 
 }
