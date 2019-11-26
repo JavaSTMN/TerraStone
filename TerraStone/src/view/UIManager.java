@@ -115,12 +115,16 @@ public class UIManager {
 			pC2.getPlayerHandController().initHandData();
       
 			if(this.game.getOrder()) {
-				addCardToHand(p2, pC2);	
+				pC2.addCardToHand();	
 			} else {
-				addCardToHand(p1, pC1);
+				pC1.addCardToHand();
 			}
 			
-			pC2.addCardToHand();
+			
+			System.out.println("pC1 hand controller size " + pC1.getPlayerHandController().getCardControllerList().size());
+			System.out.println("pC2 hand controller size " + pC2.getPlayerHandController().getCardControllerList().size());
+
+			//pC2.addCardToHand();
 
 			players.add(p2);
 

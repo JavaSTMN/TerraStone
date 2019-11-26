@@ -137,8 +137,9 @@ public class PlayerController {
 		//add card in the model
 		this.model.draw();
 		//int last = this.model.getHand().getCards().size()- 1;
-		int last = this.playerHandController.getCardList().size() ;
+		int last = this.playerHandController.getCardList().size()-1;
 		
+		System.out.println("last " + this.model + "  : " + last);
 		//add view of the new card
 		this.getPlayerHandController().addCardToHand(this.model.getHand().getCards().get(last));
 		
@@ -147,6 +148,11 @@ public class PlayerController {
 		String mana = Integer.toString((this.getPlayerHandController().getCardList().get(last).getMana_cost()));
 		String description = this.getPlayerHandController().getCardList().get(last).getEffect_description();
 		this.getPlayerHandController().getCardControllerList().get(last).initData(name, mana, description);
+		
+		last = this.playerHandController.getCardList().size()-1;
+		
+		System.out.println("After - last " + this.model + "  : " + last);
+	}
 
 	
 	public void initPlayerHero() {
