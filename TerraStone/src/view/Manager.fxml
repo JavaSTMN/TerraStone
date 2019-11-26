@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.UIManager">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.UIManager">
    <center>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+      <Pane fx:id="containerArea" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <children>
-            <Separator layoutY="356.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="0.0" prefWidth="1080.0" />
-            <AnchorPane fx:id="playerOneArea" prefHeight="358.0" prefWidth="1080.0" />
-            <AnchorPane fx:id="playerTwoArea" layoutY="358.0" prefHeight="357.0" prefWidth="1080.0" />
+            <AnchorPane fx:id="playerOneArea" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+            <AnchorPane fx:id="playerTwoArea" layoutY="358.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="358.0" prefWidth="1080.0" />
          </children>
       </Pane>
    </center>

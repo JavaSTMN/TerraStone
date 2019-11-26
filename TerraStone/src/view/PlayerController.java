@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import model.Card;
@@ -27,6 +28,9 @@ public class PlayerController {
 	@FXML 
 	private AnchorPane deckArea;
 
+	@FXML
+	private AnchorPane heroArea;
+
 	private HandController playerHandController;
 	
 	private Player model;
@@ -43,6 +47,9 @@ public class PlayerController {
 			setPlayerHandController(handLoader.getController());
 			handArea.getChildren().add(hand);
 		
+			
+			BorderPane hero = FXMLLoader.load(getClass().getResource("../view/Hero.fxml"));
+			heroArea.getChildren().add(hero);
 			
 			
 			System.out.println("END INIT HAND FOR PLAYER");
