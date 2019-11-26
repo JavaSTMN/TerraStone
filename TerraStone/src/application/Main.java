@@ -7,7 +7,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import view.HandController;
-import view.MenuView;
+import view.MenuController;
 import view.PlayerController;
 import view.UIManager;
 import javafx.scene.Scene;
@@ -78,7 +78,7 @@ public class Main extends Application {
 	public void initCtrl(String type, FXMLLoader loader) {
 		switch(type) {
 		case "menu": 
-			MenuView menuCtrl = loader.getController();
+			MenuController menuCtrl = loader.getController();
 			menuCtrl.setMainApp(this);	
 			break;
 		case "manager":

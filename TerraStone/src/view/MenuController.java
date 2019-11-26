@@ -4,7 +4,7 @@ import application.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class MenuView {
+public class MenuController {
 	
 	@FXML
 	private Button buttonPlay;
@@ -14,7 +14,7 @@ public class MenuView {
 	/**
 	 * constructor
 	 */
-	public MenuView() {}
+	public MenuController() {}
 	
 	@FXML
 	private void initialize() {

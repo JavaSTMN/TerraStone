@@ -12,7 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.CardFX;
-import view.CardView;
+import view.CardController;
 
 public class CardMain extends Application {
 
@@ -69,7 +69,7 @@ public class CardMain extends Application {
 			BorderPane conteneurPersonne = (BorderPane) loader.load();
 			
 			//Nous récupérons notre mappeur via l'objet FXMLLoader
-			CardView controleur = loader.getController();
+			CardController controleur = loader.getController();
 			//Nous lui passons notre instance de classe
 			//pour qu'il puisse récupérer notre liste observable
 			controleur.setValue(cardList.get(0));;
