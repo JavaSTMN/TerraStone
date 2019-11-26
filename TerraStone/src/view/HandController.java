@@ -41,7 +41,7 @@ public class HandController {
 			hand.getChildren().add(pane4);
 			
 			
-			/*BorderPane pane5 = FXMLLoader.load(getClass().getResource("../view/Card.fxml"));
+			BorderPane pane5 = FXMLLoader.load(getClass().getResource("../view/Card.fxml"));
 			hand.getChildren().add(pane5);
 			
 			
@@ -62,7 +62,7 @@ public class HandController {
 			
 			BorderPane pane10 = FXMLLoader.load(getClass().getResource("../view/Card.fxml"));
 			hand.getChildren().add(pane10);
-			*/
+			
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

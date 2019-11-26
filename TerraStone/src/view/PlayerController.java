@@ -29,7 +29,7 @@ public class PlayerController {
 	@FXML
 	private void initialize() {
 		
-		/*try {
+		try {
 			
 			System.out.println("INIT HAND FOR PLAYER");
 
@@ -40,7 +40,7 @@ public class PlayerController {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		
 	}
 
