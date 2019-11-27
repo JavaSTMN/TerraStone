@@ -114,15 +114,10 @@ public class PlayerController {
 	public void initPlayerHand() {
 		
 		for(Card card : this.model.getHand().getCards()) {
-			
 			this.playerHandController.getCardList().add(card);
-			int last = this.playerHandController.getCardList().size();
-			this.playerHandController.initCard(last);
-			this.playerHandController.getCardControllerList().get(last-1).selectCard();
-			
-		}
-		//System.out.println("Model from ui manager " + this.model);
-
+		}		
+		System.out.println("Model from ui manager " + this.model);
+		this.playerHandController.initHandController();
 	}
 
 	public BoardController getPlayerBoardController() {
@@ -143,16 +138,19 @@ public class PlayerController {
 	
 	public void addCardToHand() {
 		//add card in the model
+		System.out.println("last before" + this.model + "  : " + (this.model.getHand().getCards().size()-1));
 		this.model.draw();
-		//int last = this.model.getHand().getCards().size()- 1;
-		int last = this.playerHandController.getCardList().size()-1;
+		int last = this.model.getHand().getCards().size()-1 ;
+		//int last = this.playerHandController.getCardList().size();
 		
 		System.out.println("last " + this.model + "  : " + last);
-		//add view of the new card
+		//add view of the new card to hand
 		this.getPlayerHandController().addCardToHand(this.model.getHand().getCards().get(last));
 		
+		System.out.println("Card name " + this.getPlayerHandController().getCardList().get(last).getName());
 		//display data
 		String name = this.getPlayerHandController().getCardList().get(last).getName();
+		System.out.println("new card to add " + this.getPlayerHandController().getCardList().get(last));
 		String mana = Integer.toString((this.getPlayerHandController().getCardList().get(last).getMana_cost()));
 		String description = this.getPlayerHandController().getCardList().get(last).getEffect_description();
 		

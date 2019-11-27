@@ -39,31 +39,20 @@ public class HandController {
 	@FXML
 	private void initialize() {
 		
-	}
 	
-	public void initCard(int index) {
-		System.out.println(index);
+	public void initHandController() {
 		try {
-			//System.out.println(this.getCardList());
-			System.out.println("SIZE CARD LIST" + this.cardList.size());
-			/*for(int i = 0; i < this.cardList.size(); i++) {
+
+			for(int i = 0; i < cardList.size(); i++) {
 				FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("../view/Card.fxml"));
 				Parent card = (Parent) cardLoader.load();
 				cardControllerList.add(cardLoader.getController());
-				System.out.println("FIRST ? " + cardControllerList.size());
-				
 				hand.getChildren().add(card);
-			}*/
-			
-			FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("../view/Card.fxml"));
-			Parent card = (Parent) cardLoader.load();
-			cardControllerList.add(cardLoader.getController());
-			System.out.println("FIRST ? " + cardControllerList.size());
-			
-			hand.getChildren().add(card);
-			
+			}
+
 			//ajout si joueur a piece 
-			
+
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -87,8 +76,8 @@ public class HandController {
 	}
 	
 	public void initHandData() {
-		System.out.println("INIT HAND DATA " + cardList.size());
-		for(int i = 0; i<cardList.size(); i++) {
+
+		for(int i = 0; i<cardControllerList.size(); i++) {
 			String mana = Integer.toString((cardList.get(i).getMana_cost()));
 			System.out.println(cardList.get(i));
 			cardControllerList.get(i).initData(cardList.get(i).getName(),mana , cardList.get(i).getEffect_description());
