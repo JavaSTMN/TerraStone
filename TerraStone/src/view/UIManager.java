@@ -80,7 +80,7 @@ public class UIManager {
 			this.separator.setOrientation(Orientation.HORIZONTAL);
 			this.separator.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
 			this.separator.setPrefHeight(1);
-			this.separator.setLayoutY(Screen.getPrimary().getVisualBounds().getHeight()/2);
+			this.separator.setLayoutY(Screen.getPrimary().getVisualBounds().getHeight()/2 + 4);
 			this.containerArea.getChildren().add(this.separator);
 
       
@@ -102,7 +102,7 @@ public class UIManager {
 			Pane pane1 = (Pane)paneJ1;
 
 
-
+			pane1.setLayoutY(-10);
 			pane1.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
 			pane1.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()/2);
 			playerOneArea.getChildren().add(paneJ1); 
@@ -116,17 +116,12 @@ public class UIManager {
 			pC2.setModel(p2);
 			pC2.initPlayerHand();
 			pC2.getPlayerHandController().initHandData();
+
 			players.add(p2);
 
 			System.out.println("pC1 hand controller size " + pC1.getPlayerHandController().getCardControllerList().size());
 			System.out.println("pC2 hand controller size " + pC2.getPlayerHandController().getCardControllerList().size());
 			
-			/*if(this.game.getOrder()) {
-				pC2.addCardToHand();
-			} else {
-				pC1.addCardToHand();	
-			}
-			*/
 			
 			
 			//pC2.addCardToHand();
@@ -136,7 +131,7 @@ public class UIManager {
 
 			//System.out.println("Model from ui manager " + pC2.getModel());
 
-			pane2.setLayoutY(Screen.getPrimary().getVisualBounds().getHeight()/4);
+			pane2.setLayoutY(Screen.getPrimary().getVisualBounds().getHeight()/6);
 			pane2.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
 			pane2.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight()/2);
 			playerTwoArea.getChildren().add(paneJ2); 

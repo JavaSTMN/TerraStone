@@ -51,7 +51,9 @@ public class PlayerController {
 			FXMLLoader handLoader = new FXMLLoader(getClass().getResource("../view/Hand.fxml"));
 			Parent hand =(Parent) handLoader.load();
 			setPlayerHandController(handLoader.getController());
-			handArea.getChildren().add(hand);
+			Pane handZone = (Pane)hand;
+			handZone.setLayoutY(-20);
+			handArea.getChildren().add(handZone);
 		
 			
 			FXMLLoader heroLoader = new FXMLLoader(getClass().getResource("../view/Hero.fxml"));
@@ -110,6 +112,7 @@ public class PlayerController {
 	}
 	
 	public void initPlayerHand() {
+		
 		for(Card card : this.model.getHand().getCards()) {
 			this.playerHandController.getCardList().add(card);
 		}		
@@ -150,9 +153,12 @@ public class PlayerController {
 		System.out.println("new card to add " + this.getPlayerHandController().getCardList().get(last));
 		String mana = Integer.toString((this.getPlayerHandController().getCardList().get(last).getMana_cost()));
 		String description = this.getPlayerHandController().getCardList().get(last).getEffect_description();
-		this.getPlayerHandController().getCardControllerList().get(last).initData(name, mana, description);
 		
+		System.out.println(name + " " + mana + " " + description);
+		this.getPlayerHandController().getCardControllerList().get(last).initData(name, mana, description);
+		this.playerHandController.getCardControllerList().get(last).selectCard();
 		last = this.playerHandController.getCardList().size()-1;
+		
 		
 		System.out.println("After - last " + this.model + "  : " + last);
 	}

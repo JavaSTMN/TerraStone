@@ -6,12 +6,21 @@ import java.util.ArrayList;
 import application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import model.Card;
 import model.CardFX;
 
@@ -31,9 +40,6 @@ public class HandController {
 	private void initialize() {
 		
 	
-		
-	}
-	
 	public void initHandController() {
 		try {
 
@@ -45,6 +51,7 @@ public class HandController {
 			}
 
 			//ajout si joueur a piece 
+
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -72,6 +79,7 @@ public class HandController {
 
 		for(int i = 0; i<cardControllerList.size(); i++) {
 			String mana = Integer.toString((cardList.get(i).getMana_cost()));
+			System.out.println(cardList.get(i));
 			cardControllerList.get(i).initData(cardList.get(i).getName(),mana , cardList.get(i).getEffect_description());
 		}
 	}
