@@ -118,6 +118,10 @@ public class PlayerController {
 		}		
 		System.out.println("Model from ui manager " + this.model);
 		this.playerHandController.initHandController();
+		
+		for(int i = 0; i < this.playerHandController.getCardControllerList().size(); i++) {
+			this.playerHandController.getCardControllerList().get(i).selectCard();
+		}
 	}
 
 	public BoardController getPlayerBoardController() {

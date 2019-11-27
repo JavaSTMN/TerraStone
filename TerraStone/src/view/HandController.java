@@ -37,7 +37,7 @@ public class HandController {
 	private ArrayList<CardController> cardControllerList = new ArrayList();
 	
 	@FXML
-	private void initialize() {
+	private void initialize() { }
 		
 	
 	public void initHandController() {
