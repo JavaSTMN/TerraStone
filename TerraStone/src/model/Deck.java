@@ -35,10 +35,10 @@ public class Deck extends Observable{
 			    		break;
 			    	case "Monster":
 			    		this.cards.add(new Monster((Integer)((Long) card.get("mana_cost")).intValue(),(String) card.get("name"),(String) card.get("effect_description"),(String) card.get("type"),(Integer)((Long) card.get("damages")).intValue(),(Integer)((Long) card.get("hp")).intValue()));
-				    	break;
+			    		break;
 			    	case "DrawSpell":
 			    		this.cards.add(new DrawSpell((Integer)((Long) card.get("mana_cost")).intValue(),(String) card.get("name"),(String) card.get("effect_description"),(String) card.get("type"),(Integer)((Long) card.get("value")).intValue()));
-				    	break;
+			    		break;
 				    default:
 				    	break;
 			    }

@@ -13,6 +13,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.stage.Screen;
 import model.Card;
+import model.DamagesSpell;
+import model.Monster;
 import model.Player;
 
 
@@ -157,9 +159,21 @@ public class PlayerController {
 		System.out.println("new card to add " + this.getPlayerHandController().getCardList().get(last));
 		String mana = Integer.toString((this.getPlayerHandController().getCardList().get(last).getMana_cost()));
 		String description = this.getPlayerHandController().getCardList().get(last).getEffect_description();
-		
+		int dmg = 0;
+		int pv = 0;
+		switch(this.getPlayerHandController().getCardList().get(last).getType()) {
+	    	case "DamagesSpell":
+	    		dmg = ((DamagesSpell) this.getPlayerHandController().getCardList().get(last)).getValue();
+	    		break;
+	    	case "Monster":
+	    		pv = ((Monster) this.getPlayerHandController().getCardList().get(last)).getHp();
+	    		dmg = ((Monster) this.getPlayerHandController().getCardList().get(last)).getDamages();
+	    		break;
+		    default:
+		    	break;
+		}
 		System.out.println(name + " " + mana + " " + description);
-		this.getPlayerHandController().getCardControllerList().get(last).initData(name, mana, description);
+		this.getPlayerHandController().getCardControllerList().get(last).initData(name, mana, description, pv, dmg,this.getPlayerHandController().getCardList().get(last).getType());
 		this.playerHandController.getCardControllerList().get(last).selectCard();
 		last = this.playerHandController.getCardList().size()-1;
 		

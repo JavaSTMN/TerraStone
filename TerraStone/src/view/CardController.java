@@ -14,6 +14,8 @@ import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import model.DamagesSpell;
+import model.Monster;
 
 public class CardController  {
 	
@@ -29,9 +31,17 @@ public class CardController  {
 	private Label cardDescription;
 	
 	@FXML
+	private Label ptAttack;
+	
+	@FXML
+	private Label ptHealth;	
+	
+	@FXML
 	private BorderPane card;
 	
 	private boolean selected = false;
+	
+	
 	
 
 	
@@ -59,7 +69,7 @@ public class CardController  {
 				System.out.println("CLICK");
 				if(getSelected()) {
 					setSelected(false);
-					testCard.setBorder(new Border(new BorderStroke(Color.GREEN, BorderStrokeStyle.SOLID,  CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+					testCard.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID,  CornerRadii.EMPTY, BorderWidths.DEFAULT)));
 				} else {
 					setSelected(true);
 					testCard.setBorder(new Border(new BorderStroke(Color.RED, BorderStrokeStyle.SOLID,  CornerRadii.EMPTY, BorderWidths.DEFAULT)));
@@ -79,10 +89,24 @@ public class CardController  {
 		this.main = main;
 	}
 	
-	public void initData(String name, String mana, String description) {
+	public void initData(String name, String mana, String description, int pv, int dmg, String type) {
 		cardName.setText(name);
 		manaValue.setText(mana);
 		cardDescription.setText(description);
+		 switch(type) {
+	    	case "DamagesSpell":
+	    		ptHealth.setText("");
+	    		ptAttack.setText(Integer.toString(dmg));
+	    		break;
+	    	case "Monster":
+	    		ptHealth.setText(Integer.toString(pv));
+	    		ptAttack.setText(Integer.toString(dmg));
+	    		break;
+		    default:
+		    	ptHealth.setText("");
+		    	ptAttack.setText("");
+		    	break;
+	    }
 	}
 	
 	public boolean getSelected() {

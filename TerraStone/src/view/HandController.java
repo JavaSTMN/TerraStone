@@ -23,6 +23,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import model.Card;
 import model.CardFX;
+import model.DamagesSpell;
+import model.DrawSpell;
+import model.Monster;
 
 public class HandController {
 	
@@ -80,7 +83,21 @@ public class HandController {
 		for(int i = 0; i<cardControllerList.size(); i++) {
 			String mana = Integer.toString((cardList.get(i).getMana_cost()));
 			System.out.println(cardList.get(i));
-			cardControllerList.get(i).initData(cardList.get(i).getName(),mana , cardList.get(i).getEffect_description());
+			System.out.println(cardList.get(i).getType());
+			int pv = 0;
+			int dmg = 0;
+			 switch(cardList.get(i).getType()) {
+		    	case "DamagesSpell":
+		    		dmg = ((DamagesSpell) cardList.get(i)).getValue();
+		    		break;
+		    	case "Monster":
+		    		pv = ((Monster) cardList.get(i)).getHp();
+		    		dmg = ((Monster) cardList.get(i)).getDamages();
+		    		break;
+			    default:
+			    	break;
+		    }
+			cardControllerList.get(i).initData(cardList.get(i).getName(),mana , cardList.get(i).getEffect_description() ,pv, dmg,cardList.get(i).getType());
 		}
 	}
 	
