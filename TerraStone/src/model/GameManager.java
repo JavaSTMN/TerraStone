@@ -15,7 +15,7 @@ public class GameManager {
 		this.p1  = new Player();
 		this.p2 = new Player();
 		this.setOrder((new Random()).nextBoolean());
-		if(this.getOrder()) {
+		/*if(this.getOrder()) {
 			Player p2 = this.getP2();
 			p2.getLaPiece();
 		}
@@ -23,6 +23,7 @@ public class GameManager {
 			Player p1 = this.getP1();
 			p1.getLaPiece();
 		}
+		*/
 		
 		//affichage carte en plus
 	}
@@ -75,6 +76,16 @@ public class GameManager {
 		this.order = order;
 	}
 	
+	public void givePiece() {
+		if(this.order) {
+			this.p2.getLaPiece();
+		}
+		else {
+			this.p1.getLaPiece();
+		}
+	
+	}
+	
 	public void newTurn() {
 		boolean order = this.getOrder();
 		if(order) {
@@ -101,6 +112,7 @@ public class GameManager {
 			this.p1.draw();
 			this.p2.draw();
 		}
+		this.givePiece();
 	}
 
 

@@ -73,9 +73,10 @@ public class UIManager {
 			this.game = new GameManager();
 			this.p1 = this.game.getP1();
 			this.p2 = this.game.getP2();
-			
+			System.out.println("p1 size" + p1.getHand().getCards().size());
+			System.out.println("p2 size" + p2.getHand().getCards().size());
+
 			game.init();
-			
 			this.separator.setOrientation(Orientation.HORIZONTAL);
 			this.separator.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
 			this.separator.setPrefHeight(1);
@@ -85,9 +86,11 @@ public class UIManager {
       
 			FXMLLoader player1Loader = new FXMLLoader(getClass().getResource("../view/Player.fxml"));
 			Parent paneJ1 = (Parent) player1Loader.load();
+			
 			pC1 = player1Loader.<PlayerController>getController();
-			pC1.setModel(p1);
+			pC1.setModel(this.p1);
 			pC1.initPlayerHand();
+			System.out.println("p1 hand controller size" + pC1.getPlayerHandController().getCardList().size());
 			pC1.getPlayerHandController().initHandData();
 			
 			//System.out.println("pC1 handController size " + pC1.getPlayerHandController().getCardList().size() +
@@ -113,20 +116,21 @@ public class UIManager {
 			pC2.setModel(p2);
 			pC2.initPlayerHand();
 			pC2.getPlayerHandController().initHandData();
-      
-			if(this.game.getOrder()) {
-				pC2.addCardToHand();	
-			} else {
-				pC1.addCardToHand();
-			}
-			
-			
+			players.add(p2);
+
 			System.out.println("pC1 hand controller size " + pC1.getPlayerHandController().getCardControllerList().size());
 			System.out.println("pC2 hand controller size " + pC2.getPlayerHandController().getCardControllerList().size());
-
+			
+			/*if(this.game.getOrder()) {
+				pC2.addCardToHand();
+			} else {
+				pC1.addCardToHand();	
+			}
+			*/
+			
+			
 			//pC2.addCardToHand();
 
-			players.add(p2);
 
 			Pane pane2 = (Pane)paneJ2;
 
